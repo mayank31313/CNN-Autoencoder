@@ -1,6 +1,6 @@
 import numpy as np
 from keras.models import load_model
-import cv2
+import cv2, time
 
 in_height = 720//2
 in_width =  1280//2
@@ -22,17 +22,22 @@ decoder_model.summary()
 
 x_test = getImage('C:/Users/mayan/Desktop/tensorflow-autoencoder/static/2-dog.jpg')[0]
 
-decoded_imgs = encoder_model.predict(x_test)
+encoded_imgs = encoder_model.predict(x_test)
+MAX = np.max(encoded_imgs)
 
-decoded_imgs = decoded_imgs/np.max(decoded_imgs) * 255
-decoded_imgs  = decoded_imgs.astype('uint8')
+encoded_imgs = (encoded_imgs/MAX) * 255
+encoded_imgs  = encoded_imgs.astype('uint8')
 
-decoded_imgs = decoder_model.predict(decoded_imgs)
-decoded_imgs = decoded_imgs/np.max(decoded_imgs)
+inter_encoded_imgs = encoded_imgs * MAX / 255
+decoded_imgs = decoder_model.predict(inter_encoded_imgs)
 
-
-cv2.imshow("Reconstructed", decoded_imgs[0]) 
+cv2.imshow("Reconstructed", (decoded_imgs/np.max(decoded_imgs))[0]) 
 cv2.imshow("Original", x_test[0]) 
+
+name = str(time.time())
+
+cv2.imwrite("./images/%s.jpg" %name,decoded_imgs[0])
+cv2.imwrite("./images/original-%s.jpg" %name,x_test[0])
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

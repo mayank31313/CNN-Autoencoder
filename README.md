@@ -62,10 +62,10 @@ The architecture for the encoder and decoder CNN is simple, and not much complex
 <div>
     <div style="width:50%">
         <h2>Original Image</h2>        
-        <img src="restructured/original-1568820873.083995.jpg" />
+        <img src="images/original-1575732903.5332665.jpg" />
     </div>
     <div style="width:50%">
         <h2>ReconstructedImage</h2>
-        <img src="restructured/1568820873.083995.jpg" />
+        <img src="images/1575732903.5332665.jpg" />
     </div>
 </div>
