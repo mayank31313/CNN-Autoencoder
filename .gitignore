@@ -1,0 +1,5 @@
+images.npy
+SqueezeNet.ipynb
+VAE-CNN.ipynb
+.ipynb_checkpoints
+encoded_output.npy
