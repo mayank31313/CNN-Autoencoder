@@ -13,8 +13,8 @@ def getImage(file):
     frame = cv2.imread(file,1)
     return [np.array([cv2.resize(frame,(in_width,in_height))]),np.array([cv2.resize(frame,(out_width,out_height))])]
 
-encoder_model = load_model("encoder-final-model.h5")
-decoder_model = load_model("decoder-final-model.h5")
+encoder_model = load_model("32C-360x640-encoder.h5")
+decoder_model = load_model("32C-360x640-decoder.h5")
 
 encoder_model.summary()
 decoder_model.summary()
