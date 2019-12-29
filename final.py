@@ -19,7 +19,7 @@ decoder_model = load_model("decoder-final-model.h5")
 encoder_model.summary()
 decoder_model.summary()
 
-x_test = getImage('C:/Users/mayan/Desktop/tensorflow-autoencoder/static/2-dog.jpg')[0]
+#x_test = getImage('C:/Users/mayan/Desktop/tensorflow-autoencoder/static/2-dog.jpg')[0]
 
 def run_model(image):
     image = cv2.resize(image,(in_width,in_height))
